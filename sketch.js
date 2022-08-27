@@ -76,7 +76,7 @@ function draw() {
   computerArcher.display()
 
  
- for (var i=0; i<playerArrows; i++) 
+ for (var i=0; i<playerArrows.length; i++) 
  {
  showArrows(i, playerArrows);
  }
@@ -95,10 +95,10 @@ function keyPressed() {
     // create an arrow object and add into an array ; set its angle same as angle of playerArcher
     var posX = playerArcher.body.position.x;
     var posY = playerArcher.body.position.y;
-    var angle = playerArcher.body
+    var angle = playerArcher.body.angle
     var arrow = new PlayerArrow(posX, posY, 100, 10);
     arrow.trajectory = [];
-    Matter.Body.setAngle(arrow.body);
+    Matter.Body.setAngle(arrow.body,angle);
     playerArrows.push(arrow);
   }
 }
